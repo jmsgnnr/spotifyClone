@@ -3,6 +3,8 @@
 }
 
 .App-logo {
+  /* border-radius: 10%; */
+  /* box-shadow: inset 1vh 1vh 5vh 1vh lightblue, 0vh 0vh 5vh 1vh black; */
   height: 40vmin;
   pointer-events: none;
 }
@@ -24,8 +26,12 @@
   color: white;
 }
 
-.App-link {
+.App-link, {
   color: #61dafb;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes App-logo-spin {
