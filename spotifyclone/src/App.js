@@ -12,6 +12,7 @@ export const authEndpoint = 'https://accounts.spotify.com/authorize';
 const clientId= "d433a2314c9547a987c04c5516cbefe6";
 const redirectUri = "http://localhost:3000/";
 const scopes = [
+  "user-top-read",
   "user-read-currently-playing",
   "user-read-playback-state",
 ];
@@ -26,7 +27,7 @@ class App extends Component {
         images: [{url : ""}]
       },
       name: "",
-      artists: [{name: ""}],
+      artists: [{ name: "" }],
       duration_ms: 0
     },
     is_playing: "Paused",
@@ -35,6 +36,7 @@ class App extends Component {
   };
 
   this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+  this.tick = this.tick.bind(this);
   }
 
   componentDidMount() {
@@ -45,11 +47,23 @@ class App extends Component {
       });
       this.getCurrentlyPlaying(_token);
     }
+
+    this.interval = setInterval(() => this.tick(), 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  tick() {
+    if(this.state.token) {
+      this.getCurrentlyPlaying(this.state.token);
+    }
   }
 
   getCurrentlyPlaying(token) {
   $.ajax({
-    url: "https://spotify.com/v1/me/player",
+    url: "https://api.spotify.com/v1/me/player",
     type: "GET",
     beforeSend: (xhr) => {
       xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -61,6 +75,7 @@ class App extends Component {
         });
         return;
       }
+
       this.setState({
         item: data.item,
         is_playing: data.is_playing,
@@ -95,7 +110,7 @@ class App extends Component {
             )}
             {this.state.no_data && (
               <p>
-                You need to be playing a song on spot
+                You need to be playing a song on spotify
               </p>
             )}
             </header>
