@@ -10,7 +10,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background: url("https://thewallpaper.co/wp-content/uploads/2020/08/hd-space-wallpaper-outer-space-eternity-infinity-space-desktop-images-astronomy-space-windows-wallpaper-free-1280x800-1-1200x750.jpg") ;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,7 +22,8 @@
 }
 
 .App-link {
-  color: #47fa00;
+  color: #00d8ff;
+
 }
 
 @keyframes App-logo-spin {
@@ -45,6 +47,7 @@ html, body {
 
 body {
   background-color: #333;
+  background: url("https://thewallpaper.co/wp-content/uploads/2020/08/hd-space-wallpaper-outer-space-eternity-infinity-space-desktop-images-astronomy-space-windows-wallpaper-free-1280x800-1-1200x750.jpg") ;
   color: #eee;
   font-family: Helvetica, Arial;
   font-size: 3vmin;
@@ -54,13 +57,12 @@ body {
   display: none;
 }
 
-/** Buttons **/
 
 .btn {
   background-color: transparent;
   border-radius: 2em;
   border: 0.2em solid #1ecd97;
-  color: #1ecd97;
+  color: #00d8ff;
   cursor: pointer;
   font-size: 3vmin;
   padding: 0.7em 1.5em;
@@ -77,7 +79,6 @@ body {
   margin: 0 auto;
 }
 
-/** Background **/
 
 .background {
   left: 0;
@@ -85,7 +86,7 @@ body {
   top: 0;
   bottom: 0;
   /* background-size: cover; */
-border: 10px solid pink;  
+/* border: 10px solid pink;   */
   filter: blur(8em) opacity(0.6);
   position: absolute;
   max-width: 100px;
@@ -119,7 +120,8 @@ border: 10px solid pink;
   font-family: 'Train One', cursive;
   margin-top: 20vh;
   font-size: 10vh;
-  color: limegreen;
+  color: #00d8ff;
+
 
 }
 

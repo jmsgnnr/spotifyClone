@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from './logo.svg';
+import logo from './baddoglogo.svg';
 import './App.css';
 import hash from "./hash.js"
 import $ from "jquery";
