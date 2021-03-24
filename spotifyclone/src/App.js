@@ -5,6 +5,8 @@ import hash from "./hash.js"
 import $ from "jquery";
 import Player from "./Player";
 
+// error message test has been blocked by CORS policy: Response to preflight request doesn't pass access control check: Redirect is not allowed for a preflight request.
+
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 const clientId= "d433a2314c9547a987c04c5516cbefe6";
