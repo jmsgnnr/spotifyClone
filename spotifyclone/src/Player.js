@@ -1,5 +1,5 @@
 import React from "react";
-import "./Player.css";
+import "./App.css";
 
 const Player = (props) => {
   const backgroundStyles = {
@@ -23,7 +23,9 @@ const Player = (props) => {
             {props.is_playing ? "Playing" : "Paused"}
           </div>
           <div className="progress">
-            <div className="progress__bar" style={progressBarStyles} />
+            <div className="progress__bar" 
+            style={progressBarStyles} 
+            />
           </div>
         </div>
         <div className="background" style={backgroundStyles} />{" "}

@@ -1,10 +1,15 @@
-.App {
+
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
+.App , html{
   text-align: center;
+  background: black;
 }
 
 .App-logo {
-  /* border-radius: 10%; */
-  /* box-shadow: inset 1vh 1vh 5vh 1vh lightblue, 0vh 0vh 5vh 1vh black; */
+  border: 1px solid whitesmoke;
+  border-radius: 10%;
+  box-shadow: inset 1vh 1vh 5vh 1vh lightblue, 0vh 0vh 5vh 1vh black;
   height: 40vmin;
   pointer-events: none;
 }
@@ -32,6 +37,11 @@
 .btn {
   display: flex;
   flex-direction: column;
+  font-family: 'Train One', cursive;
+  margin-top: 20vh;
+  font-size: 10vh;
+  color: limegreen;
+
 }
 
 @keyframes App-logo-spin {

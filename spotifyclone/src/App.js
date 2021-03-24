@@ -8,7 +8,7 @@ import Player from "./Player";
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 const clientId= "d433a2314c9547a987c04c5516cbefe6";
-const redirectUri = "http://localhost:3000";
+const redirectUri = "http://localhost:3000/";
 const scopes = [
   "user-read-currently-playing",
   "user-read-playback-state",
@@ -25,7 +25,7 @@ class App extends Component {
       },
       name: "",
       artists: [{name: ""}],
-      duration_ms: 0,
+      duration_ms: 0
     },
     is_playing: "Paused",
     progress_ms: 0,
@@ -33,7 +33,16 @@ class App extends Component {
   };
 
   this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
-  console.log(this.state.album)
+  }
+
+  componentDidMount() {
+    let _token = hash.access_token;
+    if (_token) {
+      this.setState({
+        token : _token
+      });
+      this.getCurrentlyPlaying(_token);
+    }
   }
 
   getCurrentlyPlaying(token) {
@@ -44,22 +53,22 @@ class App extends Component {
       xhr.setRequestHeader("Authorization", "Bearer " + token);
     },
     success: (data) => {
+      if(!data) { 
+        this.setState({
+          no_data: true,
+        });
+        return;
+      }
       this.setState({
         item: data.item,
         is_playing: data.is_playing,
         progress_ms: data.progress_ms,
+        no_data: false
       });
     }
   });
   }
-    componentDidMount() {
-      let _token = hash.access_token;
-      if (_token) {
-        this.setState({
-          token : _token
-        });
-      }
-    }
+
 
     render() {
       return (
@@ -70,17 +79,22 @@ class App extends Component {
               <a
                 className="btn btn--loginApp-link"
                 href=
-                {`${authEndpoint}client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
+                {`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`}
                   >
                     Login To Spotify!
                   </a>
             )}
-            {this.state.token && ( 
+            {this.state.token && !this.state.no_data && ( 
               <Player
               item={this.state.item}
               is_playing={this.state.is_playing}
               progress_ms={this.progress_ms}
               />
+            )}
+            {this.state.no_data && (
+              <p>
+                You need to be playing a song on spot
+              </p>
             )}
             </header>
             </div>
