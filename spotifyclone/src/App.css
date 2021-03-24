@@ -89,8 +89,8 @@ body {
 /* border: 10px solid pink;   */
   filter: blur(8em) opacity(0.6);
   position: absolute;
-  max-width: 100px;
-  max-height: 100px;
+  width: 45%;
+  height: 45%;
 }
 
 .main-wrapper {
@@ -115,16 +115,10 @@ body {
   flex: 1;
 }
 .btn {
-  display: flex;
-  flex-direction: column;
   font-family: 'Train One', cursive;
   margin-top: 20vh;
-  font-size: 10vh;
   color: #00d8ff;
-
-
 }
-
 .now-playing__name {
   font-size: 1.5em;
   margin-bottom: 0.2em;
@@ -139,7 +133,7 @@ body {
   float: left;
   margin-right: 10px;
   text-align: right;
-  max-width: 100%;
+  width: 40%;
   /* border: 10px solid white; */
 }
 .now- img {
@@ -153,8 +147,8 @@ body {
 .progress {
   border: 1px solid rgb(0, 0, 0);
   height: 6px;
-  /* border-radius: 3px;playing__img */
-  overflow: hidden;
+border-radius: 3px;
+overflow: hidden;
 }
 .progress__bar {
   background-color: rgb(0, 0, 0);
