@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import hash from "./hash.js"
 import $ from "jquery";
-// import Player from "./Player";
+import Player from "./Player";
 
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 
@@ -28,10 +28,12 @@ class App extends Component {
       duration_ms: 0,
     },
     is_playing: "Paused",
-    progress_ms: 0,    
+    progress_ms: 0,
+    no_data: false,
   };
 
   this.getCurrentlyPlaying = this.getCurrentlyPlaying.bind(this);
+  console.log(this.state.album)
   }
 
   getCurrentlyPlaying(token) {
@@ -73,9 +75,13 @@ class App extends Component {
                     Login To Spotify!
                   </a>
             )}
-            {/* {this.state.token && (
-              // spotify player will go here. 
-            )} */}
+            {this.state.token && ( 
+              <Player
+              item={this.state.item}
+              is_playing={this.state.is_playing}
+              progress_ms={this.progress_ms}
+              />
+            )}
             </header>
             </div>
       );
